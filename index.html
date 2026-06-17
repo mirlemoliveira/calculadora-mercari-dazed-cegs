@@ -115,7 +115,8 @@
 
       const taxaFixa = 200;
       const totalJPY = preco + taxaFixa;
-      const totalBRL = (totalJPY * CAMBIO) + FIXO;
+      const base = totalJPY * CAMBIO;
+      const totalBRL = base <= 50 ? base + 2.50 : base + 1.50;
 
       document.getElementById('m-brl').textContent = 'R$ ' + fmt(totalBRL);
       document.getElementById('r-produto').textContent = '\u00a5' + fmt(preco);
